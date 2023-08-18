@@ -1,11 +1,12 @@
-import CartPage from "@/components/cart";
+
+import CardPage from "@/components/card";
 
 
 
 export default function Favorite() {
     return (
       <main >
-        <CartPage/>
+        <CardPage/>
       </main>
     )
   }

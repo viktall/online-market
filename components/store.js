@@ -1,9 +1,46 @@
+import img1 from '@/public/1.jpg'
+import img2 from '@/public/2.jpg'
+import img3 from '@/public/3.jpg'
+import img4 from '@/public/4.jpg'
+import img5 from '@/public/5.jpg'
+import img6 from '@/public/6.jpg'
+import img7 from '@/public/7.jpg'
+import img8 from '@/public/8.jpg'
+import img9 from '@/public/9.jpg'
+import img10 from '@/public/10.jpg'
+import img11 from '@/public/11.jpg'
+import img12 from '@/public/12.jpg'
+import img13 from '@/public/13.jpg'
+import img14 from '@/public/14.jpg'
+import img15 from '@/public/15.jpg'
+import img16 from '@/public/16.jpg'
+import img17 from '@/public/17.jpg'
+import img18 from '@/public/18.jpg'
+import img19 from '@/public/19.jpg'
+import img20 from '@/public/20.jpg'
+import img21 from '@/public/21.jpg'
+import img22 from '@/public/22.jpg'
+import img23 from '@/public/23.jpg'
+import img24 from '@/public/24.jpg'
+import img25 from '@/public/25.jpg'
+import img26 from '@/public/26.jpg'
+import img27 from '@/public/27.jpg'
+import img28 from '@/public/28.jpg'
+import img29 from '@/public/29.jpg'
+import img30 from '@/public/30.jpg'
+import img31 from '@/public/31.jpg'
+import img32 from '@/public/32.jpg'
+import img33 from '@/public/33.jpg'
+import img34 from '@/public/34.jpg'
+import img35 from '@/public/35.jpg'
+import img36 from '@/public/36.jpg'
+import img37 from '@/public/37.jpg'
 
 
 const cards = [
     {
       id: 1,
-      img: "/1.jpg",
+      img:img1,
       category: "Fruits",
       name: "strawberry",
       amount: 10000,
@@ -14,7 +51,7 @@ const cards = [
     },
     {
       id: 2,
-      img: "/2.jpg",
+      img:img2,
       category: "Vegetables",
       name: "onion",
       amount: 13000,
@@ -25,7 +62,7 @@ const cards = [
     },
     {
       id: 3,
-      img: "/3.jpg",
+      img:img3,
       category: "Vegetables",
       name: "tomato",
       amount: 15000,
@@ -36,7 +73,7 @@ const cards = [
     },
     {
       id: 4,
-      img: "/4.jpg",
+      img:img4,
       category: "Vegetables",
       name: "eggplant",
       amount: 12500,
@@ -47,7 +84,7 @@ const cards = [
     },
     {
       id: 5,
-      img: "/5.jpg",
+      img:img5,
       category: "Vegetables",
       name: "Broccoli",
       amount: 8500,
@@ -56,10 +93,10 @@ const cards = [
       quantity: 0,
       likes:false,
     },
-    //{ id: 6, img: "/6.jpg", category:'', name: "Potato", amount: 10000, total:0, cart:false, quantity:0, likes:false },
+    //{ id: 6, img:img6, category:'', name: "Potato", amount: 10000, total:0, cart:false, quantity:0, likes:false },
     {
       id: 7,
-      img: "/7.jpg",
+      img:img7,
       category: "Vegetables",
       name: "Carrot",
       amount: 12000,
@@ -70,7 +107,7 @@ const cards = [
     },
     {
       id: 8,
-      img: "/8.jpg",
+      img:img8,
       category: "Vegetables",
       name: "Cauliflower",
       amount: 8000,
@@ -81,7 +118,7 @@ const cards = [
     },
     {
       id: 9,
-      img: "/9.jpg",
+      img:img9,
       category: "Fruits",
       name: "Cucumber",
       amount: 4000,
@@ -92,7 +129,7 @@ const cards = [
     },
     {
       id: 10,
-      img: "/10.jpg",
+      img:img10,
       category: "Vegetables",
       name: "Garlic",
       amount: 16500,
@@ -103,7 +140,7 @@ const cards = [
     },
     {
       id: 11,
-      img: "/11.jpg",
+      img:img11,
       category: "Vegetables",
       name: "Sweet pepper",
       amount: 7000,
@@ -114,7 +151,7 @@ const cards = [
     },
     {
       id: 12,
-      img: "/12.jpg",
+      img:img12,
       category: "Vegetables",
       name: "Lettuce",
       amount: 18000,
@@ -125,7 +162,7 @@ const cards = [
     },
     {
       id: 13,
-      img: "/13.jpg",
+      img:img13,
       category: "Vegetables",
       name: "Red pepper",
       amount: 2000,
@@ -136,7 +173,7 @@ const cards = [
     },
     {
       id: 14,
-      img: "/14.jpg",
+      img:img14,
       category: "Fruits",
       name: "Watermelon",
       amount: 22500,
@@ -147,7 +184,7 @@ const cards = [
     },
     {
       id: 15,
-      img: "/15.jpg",
+      img:img15,
       category: "Vegetables",
       name: "Mushroom",
       amount: 11500,
@@ -158,7 +195,7 @@ const cards = [
     },
     {
       id: 16,
-      img: "/16.jpg",
+      img:img16,
       category: "Fruits",
       name: "Banana",
       amount: 14500,
@@ -169,7 +206,7 @@ const cards = [
     },
     {
       id: 17,
-      img: "/17.jpg",
+      img:img17,
       category: "Vegetables",
       name: "Pumpkin",
       amount: 15000,
@@ -180,7 +217,7 @@ const cards = [
     },
     {
       id: 18,
-      img: "/18.jpg",
+      img:img18,
       category: "Fruits",
       name: "Pineapple",
       amount: 19000,
@@ -191,7 +228,7 @@ const cards = [
     },
     {
       id: 19,
-      img: "/19.jpg",
+      img:img19,
       category: "Nuts",
       name: "Almonds",
       amount: 12000,
@@ -202,7 +239,7 @@ const cards = [
     },
     {
       id: 20,
-      img: "/20.jpg",
+      img:img20,
       category: "Fruits",
       name: "Apple",
       amount: 13200,
@@ -213,7 +250,7 @@ const cards = [
     },
     {
       id: 21,
-      img: "/21.jpg",
+      img:img21,
       category: "Nuts",
       name: "Hazelnut",
       amount: 17400,
@@ -224,7 +261,7 @@ const cards = [
     },
     {
       id: 22,
-      img: "/22.jpg",
+      img:img22,
       category: "Nuts",
       name: "Pistachio",
       amount: 14400,
@@ -235,7 +272,7 @@ const cards = [
     },
     {
       id: 23,
-      img: "/23.jpg",
+      img:img23,
       category: "Fruits",
       name: "Orange",
       amount: 25000,
@@ -246,7 +283,7 @@ const cards = [
     },
     {
       id: 24,
-      img: "/24.jpg",
+      img:img24,
       category: "Nuts",
       name: "Sunflower seed",
       amount: 23200,
@@ -257,7 +294,7 @@ const cards = [
     },
     {
       id: 25,
-      img: "/25.jpg",
+      img:img25,
       category: "Nuts",
       name: "Walnut",
       amount: 7400,
@@ -268,7 +305,7 @@ const cards = [
     },
     {
       id: 26,
-      img: "/26.jpg",
+      img:img26,
       category: "Fruits",
       name: "Cherry",
       amount: 4800,
@@ -279,7 +316,7 @@ const cards = [
     },
     {
       id: 27,
-      img: "/27.jpg",
+      img:img27,
       category: "Fruits",
       name: "Fig",
       amount: 5600,
@@ -290,7 +327,7 @@ const cards = [
     },
     {
       id: 28,
-      img: "/28.jpg",
+      img:img28,
       category: "Beans",
       name: "Green Peas",
       amount: 3600,
@@ -301,7 +338,7 @@ const cards = [
     },
     {
       id: 29,
-      img: "/29.jpg",
+      img:img29,
       category: "Fruits",
       name: "Kiwi",
       amount: 11500,
@@ -312,7 +349,7 @@ const cards = [
     },
     {
       id: 30,
-      img: "/30.jpg",
+      img:img30,
       category: "Beans",
       name: "Green Peas",
       amount: 21000,
@@ -323,7 +360,7 @@ const cards = [
     },
     {
       id: 31,
-      img: "/31.jpg",
+      img:img31,
       category: "Beans",
       name: "Red beans",
       amount: 22000,
@@ -334,7 +371,7 @@ const cards = [
     },
     {
       id: 32,
-      img: "/32.jpg",
+      img:img32,
       category: "Fruits",
       name: "Grape",
       amount: 18300,
@@ -345,7 +382,7 @@ const cards = [
     },
     {
       id: 33,
-      img: "/33.jpg",
+      img:img33,
       category: "Fruits",
       name: "Lemon",
       amount: 15800,
@@ -356,7 +393,7 @@ const cards = [
     },
     {
       id: 34,
-      img: "/34.jpg",
+      img:img34,
       category: "Fruits",
       name: "Cantaloupe",
       amount: 7000,
@@ -367,7 +404,7 @@ const cards = [
     },
     {
       id: 35,
-      img: "/35.jpg",
+      img:img35,
       category: "Beans",
       name: "Lentils",
       amount: 13000,
@@ -378,7 +415,7 @@ const cards = [
     },
     {
       id: 36,
-      img: "/36.jpg",
+      img:img36,
       category: "Vegetables",
       name: "Radish",
       amount: 14500,
@@ -389,7 +426,7 @@ const cards = [
     },
     {
       id: 37,
-      img: "/37.jpg",
+      img:img37,
       category: "Vegetables",
       name: "Corn",
       amount: 22000,

@@ -1,12 +1,12 @@
 import '@/app/globals.css'
 
-import Landingpage from "@/components/landingpage";
+import HomePage from "@/components/home";
 
 
 export default function Home() {
   return (
     <main >
-      <Landingpage/>
+      <HomePage/>
     </main>
   )
 }

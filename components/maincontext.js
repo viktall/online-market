@@ -9,11 +9,18 @@ const Mycontext = ({ children }) => {
   const [state, setState] = useState(cards);
   const [stateTwo, setStateTwo] = useState([]);
   const [filtered, setFiltered] = useState("");
+  const [search, setSearch]= useState("")
   const [likescount, setLikescount] = useState(null);
   const [itemType, setItemType] = useState(null);
   const [sumup, setSumup] = useState(0);
   const [selectedItems, setSelectedItems] = useState([]);
   const [selectedItemCart, setSelectedItemCart] = useState([]);
+
+  const HandleSearch=(e)=>{
+    setSearch(e.target.value)
+    setState(state.filter(st=>st.name.toLowerCase().includes(search)
+    ))
+  }
 
   const HandleRemove = ({ id }) => {
     setSelectedItems((prev) => prev.filter((x) => x.id !== id));
@@ -102,7 +109,7 @@ const Mycontext = ({ children }) => {
     setSumup(holdTotal);
   };
 
-  const Reset = ({ id, total}) => {
+  const Reset = ({ id, total }) => {
     setState((prev) =>
       prev.map((st) =>
         st.id === id
@@ -128,10 +135,9 @@ const Mycontext = ({ children }) => {
       )
     );
     setSelectedItemCart((prev) => prev.filter((x) => x.id !== id));
-    setSelectedItemCart((prev) => prev.filter((x) => x.id !== id));
     setItemType((prev) => prev - 1);
-    
-    setSumup(prev=>prev-total);
+
+    setSumup((prev) => prev - total);
   };
   const Addcount = (card) => {
     const { id, amount } = card;
@@ -211,21 +217,25 @@ const Mycontext = ({ children }) => {
           : st
       )
     );
-    
-    setSumup(prev=>prev-amount);
+
+    setSumup((prev) => prev - amount);
   };
 
-  const Handleselct = (selected) => {
-    setFiltered(selected);
+  
+
+  const  Handleselct = (event) => {
+    setFiltered(event.target.value);
   };
 
   const GetFiltered = () => {
-    if (filtered === "All" || !filtered) {
+    if (!filtered) {
       return state;
     } else {
       return state.filter((item) => item.category === filtered);
     }
   };
+
+  
   const filteredList = useMemo(GetFiltered, [state, filtered]);
 
   return (
@@ -234,11 +244,13 @@ const Mycontext = ({ children }) => {
         likescount,
         itemType,
         sumup,
+        filtered,
         filteredList,
         selectedItems,
-        likescount,
         stateTwo,
         selectedItemCart,
+        search,
+        HandleSearch,
         removeAllFromcart,
         Handlecarttrans,
         RemoveAll,

@@ -7,7 +7,7 @@ import {
   Remove,
   ShoppingCart,
 } from "@mui/icons-material";
-import { Box, Button, IconButton } from "@mui/material";
+import { Box, Button, Grid, IconButton } from "@mui/material";
 import Image from "next/image";
 import { useContext } from "react";
 import { Maincontext } from "./maincontext";
@@ -17,150 +17,144 @@ const CardPage = () => {
   const { HandleCart, Reset, Minuscount, Addcount, stateTwo } =
     useContext(Maincontext);
 
-  console.log(stateTwo);
   return (
     <Box
       sx={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: 2,
+        maxWidth: "700px",
+        mx: "auto",
+        p: 2,
       }}
     >
       <Box
         sx={{
-          width: { md: "60vw", xs: "80vw" },
-          display: "flex",
-          flexDirection: "column",
-          gap: 2,
-          py: 2,
+          p: 2,
+          bgcolor: "#fff",
+          borderRadius: 3,
+          borderRight: 6,
+          borderColor: "green",
+          mb: 2,
         }}
       >
-        <Box
-          sx={{
-            bgcolor: "#f2f2f2",
-            p: 2,
-            borderRadius: 3,
-            borderRight: 6,
-            borderColor: "green",
-          }}
-        >
-          <Link href="/">
-            <Box sx={{ display: "flex", alignItems: "center", "&:hover": { color: "red" }, gap: 1 }}>
-              <ArrowRightAlt />
-              Back
-            </Box>
-          </Link>
-        </Box>
-        {stateTwo.map((st) => (
+        <Link href="/">
           <Box
-            key={st.id}
             sx={{
-              display: "flex",
-              flexWrap: "wrap",
-              p: 2,
-              bgcolor: "#ccc",
-              borderRadius: 3,
-              borderLeft: 6,
-              borderColor: "green",
+              display: "inline-flex",
+              alignItems: "center",
+              "&:hover": { color: "red" },
+              gap: 1,
             }}
           >
+            <ArrowRightAlt />
+            Back
+          </Box>
+        </Link>
+      </Box>
+
+      {stateTwo.map((st) => (
+        <Grid
+          sx={{
+            bgcolor: "#fff",
+            boxShadow: "rgba(0, 0, 0, 0.3) 0px 5px 20px",
+            borderRadius: 3,
+            borderLeft: 6,
+            borderColor: "green",
+            p: 1,
+          }}
+          key={st.id}
+          container
+        >
+          <Grid item xs={12} md={6} sx={{ p: 1 }}>
             <Box
               sx={{
+                display: "flex",
                 borderRadius: 3,
                 borderRight: 6,
                 borderColor: "green",
-                width: { md: "45%", xs: "100vw" },
-                height: 280,
+                width: "100%",
+                height: 225,
                 position: "relative",
-                display: "flex",
                 bgcolor: "#fff",
                 overflow: "hidden",
+                boxShadow: "rgba(0, 0, 0, 0.3) 0px 5px 20px",
               }}
             >
               <Image
                 src={st.img}
                 alt="items"
-                sizes="100vw"
+                sizes="100%"
                 fill
                 style={{ objectFit: "contain" }}
               />
             </Box>
-            <Box
-              sx={{
-                width: { md: "55%", xs: "100vw" },
-                display: "flex",
-                flexDirection: "column",
-                gap: 3.5,
-                py: 3,
-                px: 5,
-              }}
-            >
-              <Box>{st.category}</Box>
-              <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-                <Box>{st.name}</Box> |<Box>{st.amount}</Box>
-              </Box>
+          </Grid>
+
+          <Grid key={st.id} item xs={12} md={6} sx={{ display:'flex', flexDirection:'column', gap:1, p: 2 }}>
+            <Box sx={{py:1}}>{st.category}</Box>
+            <Box sx={{ display: "flex", justifyContent: "space-between", py:1 }}>
+              <Box>{st.name}</Box> |<Box>{st.amount}</Box>
+            </Box>
+            <Box sx={{py:3, flexGrow:1}}>
               <Box>Organic: yes</Box>
               <Box>Package weight: one Kg</Box>
-              {st.cart ? (
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    gap: 2,
-                    alignItems: "center",
-                  }}
-                >
-                  {st.quantity === 1 ? (
-                    <Box sx={{ bgcolor: red[400], borderRadius: "50%" }}>
-                      <IconButton onClick={() => Reset(st)}>
-                        <DeleteOutlined sx={{ color: "#fff", fontSize: 16 }} />
-                      </IconButton>
-                    </Box>
-                  ) : (
-                    <Box sx={{ bgcolor: red[400], borderRadius: "50%" }}>
-                      <IconButton onClick={() => Minuscount(st)}>
-                        <Remove sx={{ color: "#fff", fontSize: 16 }} />
-                      </IconButton>
-                    </Box>
-                  )}
-                  <Box
-                    sx={{
-                      width: 32,
-                      py: 0.6,
-                      textAlign: "center",
-                      border: 1,
-                      borderRadius: "6px",
-                    }}
-                  >
-                    {st.quantity}
-                  </Box>
-                  <Box sx={{ bgcolor: green[400], borderRadius: "50%" }}>
-                    <IconButton onClick={() => Addcount(st)}>
-                      <Add sx={{ fontSize: 16 }} />
+            </Box>
+            {st.cart ? (
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  gap: 2,
+                  alignItems: "center"
+                }}
+              >
+                {st.quantity === 1 ? (
+                  <Box sx={{ bgcolor: red[400], borderRadius: "50%" }}>
+                    <IconButton onClick={() => Reset(st)}>
+                      <DeleteOutlined sx={{ color: "#fff", fontSize: 16 }} />
                     </IconButton>
                   </Box>
-                </Box>
-              ) : (
+                ) : (
+                  <Box sx={{ bgcolor: red[400], borderRadius: "50%" }}>
+                    <IconButton onClick={() => Minuscount(st)}>
+                      <Remove sx={{ color: "#fff", fontSize: 16 }} />
+                    </IconButton>
+                  </Box>
+                )}
                 <Box
                   sx={{
-                    "& .MuiButton-root": { borderRadius: 0 },
+                    width: 32,
+                    py: 0.6,
+                    textAlign: "center",
+                    border: 1,
+                    borderRadius: "6px",
                   }}
                 >
-                  <Button
-                    variant="contained"
-                    fullWidth
-                    onClick={() => HandleCart(st)}
-                    endIcon={<ShoppingCart />}
-                  >
-                    Add to cart
-                  </Button>
+                  {st.quantity}
                 </Box>
-              )}
-            </Box>
-          </Box>
-        ))}
-      </Box>
+                <Box sx={{ bgcolor: green[400], borderRadius: "50%" }}>
+                  <IconButton onClick={() => Addcount(st)}>
+                    <Add sx={{ fontSize: 16 }} />
+                  </IconButton>
+                </Box>
+              </Box>
+            ) : (
+              <Box
+                sx={{
+                  "& .MuiButton-root": { borderRadius: 0 },
+                }}
+              >
+                <Button
+                  variant="contained"
+                  fullWidth
+                  onClick={() => HandleCart(st)}
+                  endIcon={<ShoppingCart />}
+                >
+                  Add to cart
+                </Button>
+              </Box>
+            )}
+          </Grid>
+        </Grid>
+      ))}
     </Box>
   );
 };

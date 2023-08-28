@@ -329,7 +329,7 @@ const cards = [
       id: 28,
       img:img28,
       category: "Beans",
-      name: "Green Peas",
+      name: "Green Pea",
       amount: 3600,
       total:0,
       cart: false,

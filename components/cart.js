@@ -122,7 +122,7 @@ const CartPage = () => {
                         display: "flex",
                         alignItems: "center",
                         gap: 1,
-                        position: "relative",
+                        position: "relative"
                       }}
                     >
                       <Box
@@ -130,7 +130,7 @@ const CartPage = () => {
                           overflow: "hidden",
                           position: "relative",
                           height: 80,
-                          width: 80,
+                          width: 80
                         }}
                       >
                         <Image
@@ -150,7 +150,7 @@ const CartPage = () => {
                           display: "flex",
                           gap: 1,
                           justifyContent: "flex-end",
-                          flexGrow: 1, pr:5
+                          flexGrow: 1, pr:5, bgcolor:'red', height:'100%'
                         }}
                       >
                         <Box
@@ -181,11 +181,11 @@ const CartPage = () => {
 
                         <Box
                           sx={{
-                            width: 32,
-                            py: 0.6,
+                            width: 35,
+                            
                             textAlign: "center",
-                            border: 1,
-                            borderRadius: "6px",
+                            border:'2px solid green',
+                            borderRadius: "10px",
                           }}
                         >
                           {sel.quantity}

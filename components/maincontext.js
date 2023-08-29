@@ -9,18 +9,12 @@ const Mycontext = ({ children }) => {
   const [state, setState] = useState(cards);
   const [stateTwo, setStateTwo] = useState([]);
   const [filtered, setFiltered] = useState("");
-  const [search, setSearch]= useState("")
+  const [search, setSearch] = useState("");
   const [likescount, setLikescount] = useState(null);
   const [itemType, setItemType] = useState(null);
   const [sumup, setSumup] = useState(0);
   const [selectedItems, setSelectedItems] = useState([]);
   const [selectedItemCart, setSelectedItemCart] = useState([]);
-
-  const HandleSearch=(e)=>{
-    setSearch(e.target.value)
-    setState(state.filter(st=>st.name.toLowerCase().includes(search)
-    ))
-  }
 
   const HandleRemove = ({ id }) => {
     setSelectedItems((prev) => prev.filter((x) => x.id !== id));
@@ -221,21 +215,18 @@ const Mycontext = ({ children }) => {
     setSumup((prev) => prev - amount);
   };
 
-  
-
-  const  Handleselct = (event) => {
+  const Handleselct = (event) => {
     setFiltered(event.target.value);
   };
 
   const GetFiltered = () => {
-    if (!filtered) {
-      return state;
-    } else {
+    if (filtered) {
       return state.filter((item) => item.category === filtered);
+    } else {
+      return state;
     }
   };
 
-  
   const filteredList = useMemo(GetFiltered, [state, filtered]);
 
   return (
@@ -250,7 +241,7 @@ const Mycontext = ({ children }) => {
         stateTwo,
         selectedItemCart,
         search,
-        HandleSearch,
+        setSearch,
         removeAllFromcart,
         Handlecarttrans,
         RemoveAll,

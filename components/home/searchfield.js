@@ -13,7 +13,7 @@ import { useContext } from "react";
 import { Maincontext } from "../maincontext";
 
 const Searchfield = () => {
-  const { filtered, search, Handleselct, HandleSearch } = useContext(Maincontext);
+  const { filtered, search, setSearch, Handleselct} = useContext(Maincontext);
   const Items = [
     { id: "", product: "All" },
     { id: "Vegetables", product: "Vegetables" },
@@ -29,7 +29,7 @@ const Searchfield = () => {
         size="small"
         label="Search item..."
         value={search}
-        onChange={e=>HandleSearch(e)}
+        onChange={e=>setSearch(e.target.value)}
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">

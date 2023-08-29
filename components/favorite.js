@@ -50,7 +50,7 @@ const Favorite = () => {
       <Box sx={{ width: "100%", display:!likescount?'none':'block'}}>
         <Grid container rowSpacing={2} columnSpacing={{ xs:1.2}}>
           {selectedItems.map((st) => (
-            <Grid key={st.id} item xs={4} sm={3} md={2.4} lg={2}>
+            <Grid key={st.id} item xs={6} sm={3} md={2.4} lg={2}>
               <Box sx={{ width: "100%", p: 1, bgcolor: "#fff" }}>
                 <Box
                   sx={{

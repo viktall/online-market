@@ -13,7 +13,7 @@ import { Maincontext } from "../maincontext";
 import { Box, Button, Checkbox, Grid, IconButton } from "@mui/material";
 import Image from "next/image";
 
-const Cards = ({ card }) => {
+const Cards = () => {
   const {
     HandleLikes,
     HandleCart,
@@ -21,12 +21,18 @@ const Cards = ({ card }) => {
     Minuscount,
     Addcount,
     Handlecarttrans,
-    filteredList,
+    search,
+    filteredList
   } = useContext(Maincontext);
   return (
     <Box sx={{ width: "100%" }}>
       <Grid container rowSpacing={1} columnSpacing={1}>
-        {filteredList.map((card) => (
+        {filteredList.filter((fil) => {
+
+          return search.toLowerCase()===''? fil:fil.name.toLowerCase().includes(search)
+          
+        
+        }).map((card) => (
           <Grid key={card.id} item xs={6} sm={4} md={3} lg={2.4}>
             <Box
               sx={{
@@ -83,7 +89,7 @@ const Cards = ({ card }) => {
               </Box>
 
               <Box
-                sx={{ display: "flex", justifyContent: "space-between", p: 1 }}
+                sx={{ display: "flex", justifyContent: "space-between", py:1 }}
               >
                 <Box>{card.name}</Box>
                 <Box>{`$${card.amount}`}</Box>
@@ -113,11 +119,11 @@ const Cards = ({ card }) => {
                   )}
                   <Box
                     sx={{
-                      width: 32,
-                      py: 0.6,
+                      width:35,
+                      py: 1.5,
                       textAlign: "center",
-                      border: 1,
-                      borderRadius: "6px",
+                      border:'2px solid green',
+                      borderRadius: "10px",
                     }}
                   >
                     {card.quantity}

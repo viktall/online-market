@@ -88,12 +88,20 @@ const CardPage = () => {
             </Box>
           </Grid>
 
-          <Grid key={st.id} item xs={12} md={6} sx={{ display:'flex', flexDirection:'column', gap:1, p: 2 }}>
-            <Box sx={{py:1}}>{st.category}</Box>
-            <Box sx={{ display: "flex", justifyContent: "space-between", py:1 }}>
+          <Grid
+            key={st.id}
+            item
+            xs={12}
+            md={6}
+            sx={{ display: "flex", flexDirection: "column", gap: 1, p: 2 }}
+          >
+            <Box sx={{ py: 1 }}>{st.category}</Box>
+            <Box
+              sx={{ display: "flex", justifyContent: "space-between", py: 1 }}
+            >
               <Box>{st.name}</Box> |<Box>{st.amount}</Box>
             </Box>
-            <Box sx={{py:3, flexGrow:1}}>
+            <Box sx={{ py: 3, flexGrow: 1 }}>
               <Box>Organic: yes</Box>
               <Box>Package weight: one Kg</Box>
             </Box>
@@ -103,7 +111,7 @@ const CardPage = () => {
                   display: "flex",
                   justifyContent: "center",
                   gap: 2,
-                  alignItems: "center"
+                  alignItems: "center",
                 }}
               >
                 {st.quantity === 1 ? (
@@ -121,11 +129,11 @@ const CardPage = () => {
                 )}
                 <Box
                   sx={{
-                    width: 32,
-                    py: 0.6,
+                    width: 35,
+                    py:1.5,
                     textAlign: "center",
-                    border: 1,
-                    borderRadius: "6px",
+                    border:'2px solid green',
+                    borderRadius: "10px",
                   }}
                 >
                   {st.quantity}

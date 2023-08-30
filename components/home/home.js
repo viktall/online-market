@@ -9,7 +9,7 @@ const HomePage = () => {
       sx={{
         maxWidth: "1200px",
         mx: "auto",
-        p: 1,
+        px: 1, py:2
       }}
     >
       <Searchfield />

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-//import { grey, red, green } from "@mui/material/colors";
+import { grey, orange, amber} from "@mui/material/colors";
 import { useContext } from "react";
 import { Maincontext } from "../maincontext";
 import { AppBar, Toolbar, Box, Badge } from "@mui/material";
@@ -12,18 +12,14 @@ const Nav = () => {
 
   return (
     <>
-      <AppBar
-        position="fixed"
-        color="primary"
-        sx={{ px: { md: 6, sm: 3, xs: 0 } }}
-      >
-        <Toolbar sx={{ gap: 5 }}>
-          <Box sx={{ flexGrow: 1 }}>MUI</Box>
+      <AppBar position="fixed" color="primary" sx={{ px: { md: 8, sm: 3 } }}>
+        <Toolbar>
+          <Box sx={{ flexGrow: 1 }}>OnlineMarket</Box>
 
-          <Box sx={{ display: "flex", alignItems: "center", gap: 4 }}>
+          <Box sx={{ display: "flex", alignItems: "center", gap:3}}>
             <Link href="/cart">
               <Badge
-                color="secondary"
+                color="warning"
                 anchorOrigin={{
                   vertical: "bottom",
                   horizontal: "right",
@@ -32,13 +28,13 @@ const Nav = () => {
                 badgeContent={itemType}
                 sx={{ cursor: "pointer" }}
               >
-                <ShoppingBagOutlined fontSize="large" color="action"/>
+                <ShoppingBagOutlined fontSize="large" sx={{ color: "#fff" }} />
               </Badge>
             </Link>
 
             <Link href="/favorite">
               <Badge
-                color="secondary"
+                color="warning"
                 anchorOrigin={{
                   vertical: "bottom",
                   horizontal: "right",
@@ -47,7 +43,7 @@ const Nav = () => {
                 badgeContent={likescount}
                 sx={{ cursor: "pointer" }}
               >
-                <BookmarkBorder fontSize="large" color="action"/>
+                <BookmarkBorder fontSize="large" sx={{ color: "#fff" }} />
               </Badge>
             </Link>
           </Box>

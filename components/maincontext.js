@@ -16,6 +16,10 @@ const Mycontext = ({ children }) => {
   const [selectedItems, setSelectedItems] = useState([]);
   const [selectedItemCart, setSelectedItemCart] = useState([]);
 
+
+  const discount=20;
+
+  
   const HandleRemove = ({ id }) => {
     setSelectedItems((prev) => prev.filter((x) => x.id !== id));
     setState((prev) =>
@@ -241,6 +245,7 @@ const Mycontext = ({ children }) => {
         stateTwo,
         selectedItemCart,
         search,
+        discount,
         setSearch,
         removeAllFromcart,
         Handlecarttrans,

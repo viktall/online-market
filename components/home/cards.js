@@ -144,7 +144,7 @@ const Cards = () => {
                     >
                       {card.quantity}
                     </Box>
-                    <Box sx={{ bgcolor: "success.main", borderRadius: "50%" }}>
+                    <Box sx={{ bgcolor: "success.light", borderRadius: "50%" }}>
                       <IconButton onClick={() => Addcount(card)}>
                         <Add sx={{ color: "#fff", fontSize: 16 }} />
                       </IconButton>
@@ -153,7 +153,10 @@ const Cards = () => {
                 ) : (
                   <Box
                     sx={{
-                      "& .MuiButton-root": { borderRadius: 0 },
+                      "& .MuiButton-root": {
+                        textTransform: "none",
+                        borderRadius: 0,
+                      },
                     }}
                   >
                     <Button
@@ -170,8 +173,7 @@ const Cards = () => {
             </Grid>
           ))
         ) : (
-          <Box sx={{width:'100%'}}>
-            
+          <Box sx={{ width: "100%" }}>
             <Box
               sx={{
                 position: "relative",
@@ -190,7 +192,7 @@ const Cards = () => {
                 style={{ objectFit: "contain" }}
               />
             </Box>
-            <Box sx={{ color: "red", textAlign: "center"}}>
+            <Box sx={{ color: "red", textAlign: "center" }}>
               Oops! No item match your search
             </Box>
           </Box>

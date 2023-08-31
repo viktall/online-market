@@ -41,7 +41,6 @@ const CardPage = () => {
               display: "inline-flex",
               alignItems: "center",
               "&:hover": { color: "red" },
-              gap: 1,
             }}
           >
             <ArrowRightAlt />
@@ -95,7 +94,7 @@ const CardPage = () => {
             md={6}
             sx={{ display: "flex", flexDirection: "column", gap: 1, p: 2 }}
           >
-            <Box sx={{ py: 1 }}>{st.category}</Box>
+            <Box sx={{ color: "GrayText" }}>{st.category}</Box>
             <Box
               sx={{ display: "flex", justifyContent: "space-between", py: 1 }}
             >
@@ -115,13 +114,13 @@ const CardPage = () => {
                 }}
               >
                 {st.quantity === 1 ? (
-                  <Box sx={{ bgcolor: red[400], borderRadius: "50%" }}>
+                  <Box sx={{ bgcolor: "warning.main", borderRadius: "50%" }}>
                     <IconButton onClick={() => Reset(st)}>
                       <DeleteOutlined sx={{ color: "#fff", fontSize: 16 }} />
                     </IconButton>
                   </Box>
                 ) : (
-                  <Box sx={{ bgcolor: red[400], borderRadius: "50%" }}>
+                  <Box sx={{ bgcolor: "warning.main", borderRadius: "50%" }}>
                     <IconButton onClick={() => Minuscount(st)}>
                       <Remove sx={{ color: "#fff", fontSize: 16 }} />
                     </IconButton>
@@ -130,17 +129,17 @@ const CardPage = () => {
                 <Box
                   sx={{
                     width: 35,
-                    py:1.5,
+                    py: 1.5,
                     textAlign: "center",
-                    border:'2px solid green',
+                    border: "2px solid orange",
                     borderRadius: "10px",
                   }}
                 >
                   {st.quantity}
                 </Box>
-                <Box sx={{ bgcolor: green[400], borderRadius: "50%" }}>
+                <Box sx={{ bgcolor: "success.light", borderRadius: "50%" }}>
                   <IconButton onClick={() => Addcount(st)}>
-                    <Add sx={{ fontSize: 16 }} />
+                    <Add sx={{ fontSize: 16, color:'#fff'}} />
                   </IconButton>
                 </Box>
               </Box>

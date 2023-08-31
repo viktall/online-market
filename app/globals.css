@@ -31,3 +31,28 @@ html {
   /* border-radius: 1px; */
   width: 5px;
 }
+
+.offerBadge {
+  width: 42px;
+  height: 42px;
+  background-color: tomato;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clip-path: polygon(
+    50% 0%,
+    80% 10%,
+    100% 35%,
+    100% 70%,
+    80% 90%,
+    50% 100%,
+    20% 90%,
+    0% 70%,
+    0% 35%,
+    20% 10%
+  );
+  position: absolute;
+  top: -6px;
+  right: -6px;
+}

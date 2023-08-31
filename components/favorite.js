@@ -15,27 +15,29 @@ const Favorite = () => {
       sx={{
         maxWidth: "1200px",
         mx: "auto",
-        px:1, py:2
+        px: 1,
+        py: 2,
       }}
     >
       <Box
         sx={{
           display: "flex",
           justifyContent: "space-between",
+          alignItems:'center',
           bgcolor: "#fff",
-          px: { md: 5, xs: 2 },
-          py: 2, mb:2,
+          px: { md:2, xs: 1 },
+          py:1.5,
+          mb:2,
           borderRadius: 3,
         }}
       >
-        <Box>Favorite</Box>
+        <Box sx={{color:'GrayText'}}>Favorite</Box>
         <Link href="/">
           <Box
             sx={{
               display: "flex",
               alignItems: "center",
-              "&:hover": { color: "red" },
-              gap: 1,
+              "&:hover": { color: "red" }
             }}
           >
             <ArrowRightAlt /> Products page
@@ -47,8 +49,8 @@ const Favorite = () => {
         Remove All
       </Button>
 
-      <Box sx={{ width: "100%", display:!likescount?'none':'block'}}>
-        <Grid container rowSpacing={2} columnSpacing={{ xs:1.2}}>
+      <Box sx={{ width: "100%", display: !likescount ? "none" : "block" }}>
+        <Grid container rowSpacing={2} columnSpacing={{ xs: 1.2 }}>
           {selectedItems.map((st) => (
             <Grid key={st.id} item xs={6} sm={3} md={2.4} lg={2}>
               <Box sx={{ width: "100%", p: 1, bgcolor: "#fff" }}>
@@ -87,7 +89,7 @@ const Favorite = () => {
         </Grid>
       </Box>
       {!likescount && (
-        <Box sx={{ width: "100%"}}>
+        <Box sx={{ width: "100%" }}>
           <Box sx={{ position: "relative", overflow: "hidden", height: 200 }}>
             <Image
               alt="items"
@@ -97,7 +99,7 @@ const Favorite = () => {
               style={{ objectFit: "contain" }}
             />
           </Box>
-          <Box sx={{ textAlign: "center"}}>favorites are empty</Box>
+          <Box sx={{ textAlign: "center" }}>favorites are empty</Box>
         </Box>
       )}
     </Box>

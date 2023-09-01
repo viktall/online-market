@@ -15,11 +15,34 @@ const Mycontext = ({ children }) => {
   const [sumup, setSumup] = useState(0);
   const [selectedItems, setSelectedItems] = useState([]);
   const [selectedItemCart, setSelectedItemCart] = useState([]);
-
-
-  const discount=20;
-
+  const [discountCode, setDiscountcode] = useState("");
   
+
+  const code = "UGWU";
+  const treshold = 100000;
+  const shippingCost = 10000;
+  const discount = 20;
+  const totalAmountPayable = sumup < treshold ? sumup + shippingCost : sumup;
+  const discountedPrice = sumup - (sumup * discount) / 100;
+
+  const toggle =
+    (discountCode !== code && sumup < treshold) ||
+    (discountCode === code && discountedPrice < treshold);
+
+  const offer =
+    discountCode === code && discountedPrice < treshold
+      ? discountedPrice + shippingCost
+      : discountCode === code && discountedPrice > treshold
+      ? discountedPrice
+      : totalAmountPayable;
+
+
+
+      const HandleSubmit=(e)=>{
+         e.preventDefault();
+         setDiscountcode('')
+      }
+
   const HandleRemove = ({ id }) => {
     setSelectedItems((prev) => prev.filter((x) => x.id !== id));
     setState((prev) =>
@@ -246,6 +269,14 @@ const Mycontext = ({ children }) => {
         selectedItemCart,
         search,
         discount,
+        shippingCost,
+        offer,
+        discountedPrice,
+        discountCode,
+        toggle,
+        treshold,
+        HandleSubmit,
+        setDiscountcode,
         setSearch,
         removeAllFromcart,
         Handlecarttrans,

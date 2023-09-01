@@ -38,11 +38,11 @@ const Footer = () => {
       <Box>
         <Link href="/cart">Cart</Link>
       </Box>
-      <Box sx={{ flexGrow: 1, bgcolor:'yellow' }}>
-        <Link href="/favorite">Cart</Link>
+      <Box sx={{ flexGrow: 1}}>
+        <Link href="/favorite">favorite</Link>
       </Box>
 
-      <Box sx={{ alignSelf: "center", bgcolor:'yellow', color:'#fff' }}>copyright created by victor</Box>
+      <Box sx={{ alignSelf: "center", color:'#fff' }}>copyright created by victor</Box>
     </Box>
   );
 };

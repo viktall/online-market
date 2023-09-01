@@ -53,6 +53,6 @@ html {
     20% 10%
   );
   position: absolute;
-  top: -6px;
-  right: -6px;
+  top: -10px;
+  left: -10px;
 }

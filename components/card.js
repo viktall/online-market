@@ -56,7 +56,7 @@ const CardPage = () => {
             boxShadow: "rgba(0, 0, 0, 0.3) 0px 5px 20px",
             borderRadius: 3,
             borderLeft: 6,
-            borderColor: "green",
+            borderColor: "primary.main",
             p: 1,
           }}
           key={st.id}
@@ -68,7 +68,7 @@ const CardPage = () => {
                 display: "flex",
                 borderRadius: 3,
                 borderRight: 6,
-                borderColor: "green",
+                borderColor: "primary.main",
                 width: "100%",
                 height: 225,
                 position: "relative",
@@ -98,7 +98,7 @@ const CardPage = () => {
             <Box
               sx={{ display: "flex", justifyContent: "space-between", py: 1 }}
             >
-              <Box>{st.name}</Box> |<Box>{st.amount}</Box>
+              <Box>{st.name}</Box> |<Box>{st.amount.toLocaleString()}$</Box>
             </Box>
             <Box sx={{ py: 3, flexGrow: 1 }}>
               <Box>Organic: yes</Box>
@@ -139,7 +139,7 @@ const CardPage = () => {
                 </Box>
                 <Box sx={{ bgcolor: "success.light", borderRadius: "50%" }}>
                   <IconButton onClick={() => Addcount(st)}>
-                    <Add sx={{ fontSize: 16, color:'#fff'}} />
+                    <Add sx={{ fontSize: 16, color: "#fff" }} />
                   </IconButton>
                 </Box>
               </Box>

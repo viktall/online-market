@@ -100,7 +100,7 @@ const Cards = () => {
                   }}
                 >
                   <Box>{card.name}</Box>
-                  <Box>{`${card.amount}$`}</Box>
+                  <Box>{card.amount.toLocaleString()}$</Box>
                 </Box>
 
                 {card.cart ? (

@@ -1,10 +1,8 @@
 "use client";
-import { grey, red, green } from "@mui/material/colors";
 import {
   Add,
   ArrowRightAlt,
-  Cancel,
-  CancelOutlined,
+  Close,
   DeleteOutlined,
   Remove,
 } from "@mui/icons-material";
@@ -31,6 +29,14 @@ const CartPage = () => {
     Reset,
     sumup,
     discount,
+    shippingCost,
+    setDiscountcode,
+    offer,
+    discountedPrice,
+    discountCode,
+    toggle,
+    treshold,
+    HandleSubmit
   } = useContext(Maincontext);
   return (
     <Box
@@ -102,7 +108,7 @@ const CartPage = () => {
               color: "error.main",
             }}
           >
-            Shipping is free for purchases over 100 000$
+            Shipping is free for purchases over {treshold.toLocaleString()}$
           </Box>
           <Box
             sx={{
@@ -124,7 +130,7 @@ const CartPage = () => {
                       borderRadius: 3,
                       bgcolor: "#fff",
                       borderRight: 6,
-                      borderColor: "green",
+                      borderColor: "primary.main",
                       display: "flex",
                       alignItems: "center",
                       gap: 1,
@@ -147,9 +153,9 @@ const CartPage = () => {
                         style={{ objectFit: "contain" }}
                       />
                     </Box>
-                    <Box sx={{ flexGrow: 1 }}>
+                    <Box sx={{ flexGrow: 1, lineHeight: 1.5 }}>
                       <Box>{sel.name}</Box>
-                      <Box>{sel.total}</Box>
+                      <Box>{sel.total.toLocaleString()}$</Box>
                     </Box>
 
                     <Box
@@ -199,10 +205,12 @@ const CartPage = () => {
                         top: 9,
                         right: 6,
                         zIndex: 1,
+                        cursor: "pointer",
+                        color: "GrayText",
                       }}
                       onClick={() => Reset(sel)}
                     >
-                      <CancelOutlined />
+                      <Close />
                     </Box>
                   </Box>
                 ))}
@@ -223,14 +231,26 @@ const CartPage = () => {
                   flexDirection: "column",
                   gap: 4,
                   borderLeft: 6,
-                  borderColor: "green",
+                  borderColor: "primary.main",
                 }}
               >
                 <Box className="offerBadge">%{discount}</Box>
                 <Box sx={{ display: "flex", gap: 7 }}>
-                  <Box>Total shopping cart</Box> | <Box>{sumup}$</Box>
+                  <Box>Total shopping cart</Box> |{" "}
+                  <Box>{sumup.toLocaleString()} $</Box>
                 </Box>
-
+                <Box
+                  sx={{
+                    textAlign: "center",
+                    lineHeight: 1.5,
+                    display: discountCode === "UGWU" ? "block" : "none",
+                  }}
+                >
+                  <Box>Discounted Price</Box>
+                  <Box sx={{ fontSize: 20, color: "warning.main" }}>
+                    {discountedPrice.toLocaleString()} $
+                  </Box>
+                </Box>
                 <Box
                   sx={{
                     "& .MuiInputBase-root": {
@@ -246,7 +266,7 @@ const CartPage = () => {
                     },
                     display: "flex",
                     flexDirection: "column",
-                    gap: 2,
+                    gap: 1,
                   }}
                 >
                   <Box>Do you have a discount code?</Box>
@@ -254,12 +274,13 @@ const CartPage = () => {
                     <TextField
                       id="search"
                       size="small"
-                      label="Search item..."
+                      placeholder="discount code:UGWU"
                       fullWidth
+                      onChange={(e) => setDiscountcode(e.target.value)}
                       InputProps={{
                         endAdornment: (
                           <InputAdornment position="end">
-                            <Button variant="contained">Apply</Button>
+                            <Button variant="contained" onClick={HandleSubmit}>Apply</Button>
                           </InputAdornment>
                         ),
                       }}
@@ -269,7 +290,26 @@ const CartPage = () => {
 
                 <Box sx={{ display: "flex", gap: 10 }}>
                   <Box>Shipping cost</Box>
-                  <Box>10000$</Box>
+                  <Box sx={{ display: toggle ? "block" : "none" }}>
+                    {shippingCost.toLocaleString()}$
+                  </Box>
+                  <Box sx={{ display: toggle ? "none" : "block" }}>Free</Box>
+                </Box>
+                <Box
+                  sx={{
+                    position: "relative",
+                    height: 50,
+                    width: 100,
+                    display: toggle ? "none" : "block",
+                  }}
+                >
+                  <Image
+                    src="/free.svg"
+                    alt="free"
+                    fill
+                    sizes="100%"
+                    styles={{ objectFit: "contain" }}
+                  />
                 </Box>
                 <Box
                   sx={{
@@ -280,7 +320,9 @@ const CartPage = () => {
                   }}
                 >
                   <Box>Total amount payable</Box>
-                  <Box>{sumup < 100000 ? sumup + 10000 : sumup}$</Box>
+                  <Box sx={{ fontSize: 24, color: "primary.main" }}>
+                    {offer.toLocaleString()} $
+                  </Box>
                 </Box>
                 <Box
                   sx={{
@@ -308,7 +350,7 @@ const CartPage = () => {
                         "&:hover": { bgcolor: "warning.main", opacity: 0.95 },
                       }}
                     >
-                      Remove {itemType} items from the shippin cart
+                      Remove {itemType} items from the shopping cart
                     </Button>
                   </Box>
                 </Box>

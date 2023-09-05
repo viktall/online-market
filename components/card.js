@@ -31,7 +31,7 @@ const CardPage = () => {
           bgcolor: "#fff",
           borderRadius: 3,
           borderRight: 6,
-          borderColor: "green",
+          borderColor: "primary.main",
           mb: 2,
         }}
       >

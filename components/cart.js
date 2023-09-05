@@ -33,10 +33,12 @@ const CartPage = () => {
     setDiscountcode,
     offer,
     discountedPrice,
-    discountCode,
+    dcode,
     toggle,
     treshold,
-    HandleSubmit
+    code,
+    HandleSubmit,
+    clickButton,
   } = useContext(Maincontext);
   return (
     <Box
@@ -102,7 +104,7 @@ const CartPage = () => {
             sx={{
               px: { md: 2, xs: 1 },
               py: 1.5,
-              mb: 1.5,
+              mb: 2,
               borderRadius: 3,
               bgcolor: "#fff",
               color: "error.main",
@@ -115,7 +117,7 @@ const CartPage = () => {
               display: "flex",
               flexWrap: "wrap",
               justifyContent: "center",
-              gap: 1.5,
+              gap: 2,
             }}
           >
             <Box flex={{ md: 3 }} sx={{ width: "100%" }}>
@@ -235,15 +237,22 @@ const CartPage = () => {
                 }}
               >
                 <Box className="offerBadge">%{discount}</Box>
-                <Box sx={{ display: "flex", gap: 7 }}>
-                  <Box>Total shopping cart</Box> |{" "}
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    px: 2,
+                    width: "100%",
+                  }}
+                >
+                  <Box>Total shopping cart</Box> |
                   <Box>{sumup.toLocaleString()} $</Box>
                 </Box>
                 <Box
                   sx={{
                     textAlign: "center",
                     lineHeight: 1.5,
-                    display: discountCode === "UGWU" ? "block" : "none",
+                    display: dcode === code ? "block" : "none",
                   }}
                 >
                   <Box>Discounted Price</Box>
@@ -257,10 +266,10 @@ const CartPage = () => {
                       borderRadius: 0,
                       pr: 0,
                       py: 0,
-                      height: 45,
+                      height: 40,
                     },
                     "& .MuiButton-root": {
-                      height: 45,
+                      height: 40,
                       borderRadius: 0,
                       textTransform: "none",
                     },
@@ -274,18 +283,27 @@ const CartPage = () => {
                     <TextField
                       id="search"
                       size="small"
+                      disabled={dcode === code}
                       placeholder="discount code:UGWU"
                       fullWidth
                       onChange={(e) => setDiscountcode(e.target.value)}
                       InputProps={{
                         endAdornment: (
                           <InputAdornment position="end">
-                            <Button variant="contained" onClick={HandleSubmit}>Apply</Button>
+                            <Button variant="contained" onClick={HandleSubmit}>
+                              Apply
+                            </Button>
                           </InputAdornment>
                         ),
                       }}
                     />
                   </Box>
+                  {dcode === code && clickButton && (
+                    <Box sx={{ color: "success.main" }}>Discount applied!</Box>
+                  )}
+                  {dcode !== code && clickButton && (
+                    <Box sx={{ color: "error.main" }}>Incorrect code</Box>
+                  )}
                 </Box>
 
                 <Box sx={{ display: "flex", gap: 10 }}>

@@ -49,17 +49,16 @@ const Searchfield = () => {
         sx={{bgcolor:'#eee'}}
       />
 
-      <FormControl size="small" sx={{ minWidth: 120 }}>
+      <FormControl id='con' size="small" sx={{ minWidth: 120 }}>
         <Select
           labelId="demo-simple-select-helper-label"
-          id="idkey"
           value={filtered}
           onChange={Handleselct}
           displayEmpty
-          inputProps={{ "aria-label": "Without label" }}
+          inputProps={{ "aria-label": "Without label", id:"idkey" }}
           sx={{bgcolor:'#eee'}}
         >
-          {Items.map((it) => (
+          {Items.map(it => (
             <MenuItem key={it.id} value={it.id}>
               {it.product}
             </MenuItem>

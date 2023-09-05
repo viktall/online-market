@@ -16,7 +16,8 @@ const Mycontext = ({ children }) => {
   const [selectedItems, setSelectedItems] = useState([]);
   const [selectedItemCart, setSelectedItemCart] = useState([]);
   const [discountCode, setDiscountcode] = useState("");
-  
+  const [dcode, setCode] = useState(null);
+  const [clickButton, setClickbutton]= useState(false)
 
   const code = "UGWU";
   const treshold = 100000;
@@ -26,22 +27,24 @@ const Mycontext = ({ children }) => {
   const discountedPrice = sumup - (sumup * discount) / 100;
 
   const toggle =
-    (discountCode !== code && sumup < treshold) ||
-    (discountCode === code && discountedPrice < treshold);
+    (dcode !== code && sumup < treshold) ||
+    (dcode === code && discountedPrice < treshold);
 
   const offer =
-    discountCode === code && discountedPrice < treshold
+    dcode === code && discountedPrice < treshold
       ? discountedPrice + shippingCost
-      : discountCode === code && discountedPrice > treshold
+      : dcode === code && discountedPrice > treshold
       ? discountedPrice
       : totalAmountPayable;
 
+  const HandleSubmit = (e) => {
+    e.preventDefault();
+    setCode(discountCode);
 
-
-      const HandleSubmit=(e)=>{
-         e.preventDefault();
-         setDiscountcode('')
-      }
+    if(discountCode){
+    setClickbutton(true)
+    }
+  };
 
   const HandleRemove = ({ id }) => {
     setSelectedItems((prev) => prev.filter((x) => x.id !== id));
@@ -272,9 +275,11 @@ const Mycontext = ({ children }) => {
         shippingCost,
         offer,
         discountedPrice,
-        discountCode,
+        dcode,
+        code,
         toggle,
         treshold,
+        clickButton,
         HandleSubmit,
         setDiscountcode,
         setSearch,

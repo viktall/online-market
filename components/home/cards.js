@@ -45,10 +45,9 @@ const Cards = () => {
                   p: 1,
                   cursor: "pointer",
                   transition: "all 0.3s ease",
-                  boxShadow: "rgba(0, 0, 0, 0.08) 0px 5px 20px",
+                  boxShadow: "rgba(0, 0, 0, 0.03) 0px 5px 20px",
                   "&:hover": {
-                    boxShadow: "rgba(0, 0, 0, 0.3) 0px 8px 24px",
-                    transform: "translateY(-1px)",
+                    transform: "translateY(-1px)"
                   },
                 }}
               >
@@ -173,14 +172,16 @@ const Cards = () => {
             </Grid>
           ))
         ) : (
-          <Box sx={{ width: "100%" }}>
+          <Box sx={{ width: "100%", display:'flex', alignItems:'center', flexDirection:'column', gap:2, py:2}}>
+            <Box sx={{ color: "red"}}>
+              Oops! No item match your search
+            </Box>
             <Box
               sx={{
                 position: "relative",
-                display: "flex",
                 overflow: "hidden",
-                height: 300,
-                width: "100%",
+                height:230,
+                width: 230
               }}
             >
               <Image
@@ -192,9 +193,7 @@ const Cards = () => {
                 style={{ objectFit: "contain" }}
               />
             </Box>
-            <Box sx={{ color: "red", textAlign: "center" }}>
-              Oops! No item match your search
-            </Box>
+            
           </Box>
         )}
       </Grid>

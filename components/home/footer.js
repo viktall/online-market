@@ -30,12 +30,12 @@ const Footer = () => {
           }}
         >
           <Box>
-            <Link href="/cart" prefetch={false}>
+            <Link href="/cart">
               Cart
             </Link>
           </Box>
           <Box>
-            <Link href="/favorite" prefetch={false}>
+            <Link href="/favorite">
               favorite
             </Link>
           </Box>

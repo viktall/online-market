@@ -77,7 +77,6 @@ const Cards = () => {
                     pathname: "/card",
                     query: { name: card.name },
                   }}
-                  prefetch={false}
                 >
                   <Box
                     onClick={() => Handlecarttrans(card)}

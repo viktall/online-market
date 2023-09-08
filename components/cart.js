@@ -62,7 +62,7 @@ const CartPage = () => {
         }}
       >
         <Box sx={{ color: "GrayText" }}>Basket</Box>
-        <Link href="/" prefetch={false}>
+        <Link href="/">
           <Box
             sx={{
               display: "flex",

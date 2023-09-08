@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { grey, orange, amber } from "@mui/material/colors";
 import { useContext } from "react";
 import { Maincontext } from "../maincontext";
 import { AppBar, Toolbar, Box, Badge } from "@mui/material";
@@ -25,13 +24,13 @@ const Nav = () => {
             }}
           >
             <Box sx={{ flexGrow: 1, color: "#fff" }}>
-              <Link href="/" prefetch={false}>
+              <Link href="/">
                 MarketByHillz
               </Link>
             </Box>
 
             <Box sx={{ display: "flex", alignItems: "center", gap: 3 }}>
-              <Link href="/cart" prefetch={false}>
+              <Link href="/cart">
                 <Badge
                   color="warning"
                   anchorOrigin={{
@@ -49,7 +48,7 @@ const Nav = () => {
                 </Badge>
               </Link>
 
-              <Link href="/favorite" prefetch={false}>
+              <Link href="/favorite">
                 <Badge
                   color="warning"
                   anchorOrigin={{

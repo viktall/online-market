@@ -32,7 +32,7 @@ const Favorite = () => {
         }}
       >
         <Box sx={{ color: "GrayText" }}>Favorite</Box>
-        <Link href="/" prefetch={false}>
+        <Link href="/">
           <Box
             sx={{
               display: "flex",

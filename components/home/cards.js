@@ -11,6 +11,7 @@ import {
 import { Box, Button, Checkbox, Grid, IconButton } from "@mui/material";
 import { useContext } from "react";
 import { Maincontext } from "../maincontext";
+import Link from "next/link";
 
 const Cards = () => {
   const {
@@ -32,9 +33,9 @@ const Cards = () => {
 
   return (
     <Box sx={{ width: "100%" }}>
-      <Grid container rowSpacing={1} columnSpacing={1}>
-        {productFilter.length > 0 ? (
-          productFilter.map((card) => (
+      {productFilter.length > 0 ? (
+        <Grid container rowSpacing={1} columnSpacing={1}>
+          {productFilter.map((card) => (
             <Grid key={card.id} item xs={6} sm={4} md={3} lg={2.4}>
               <Box
                 sx={{
@@ -47,7 +48,7 @@ const Cards = () => {
                   transition: "all 0.3s ease",
                   boxShadow: "rgba(0, 0, 0, 0.03) 0px 5px 20px",
                   "&:hover": {
-                    transform: "translateY(-1px)"
+                    transform: "translateY(-1px)",
                   },
                 }}
               >
@@ -70,27 +71,35 @@ const Cards = () => {
                     checked={card.likes}
                   />
                 </Box>
-                <Box
-                  onClick={() => Handlecarttrans(card)}
-                  sx={{
-                    width: "100%",
-                    height: 200,
-                    position: "relative",
-                    overflow: "hidden",
-                    flexGrow: 1,
-                    display: "flex",
-                  }}
-                >
-                  <Image
-                    src={card.img}
-                    alt={card.name}
-                    sizes="100%"
-                    fill
-                    priority
-                    style={{ objectFit: "contain" }}
-                  />
-                </Box>
 
+                <Link
+                  href={{
+                    pathname: "/card",
+                    query: { name: card.name },
+                  }}
+                  prefetch={false}
+                >
+                  <Box
+                    onClick={() => Handlecarttrans(card)}
+                    sx={{
+                      width: "100%",
+                      height: 200,
+                      position: "relative",
+                      overflow: "hidden",
+                      flexGrow: 1,
+                      display: "flex",
+                    }}
+                  >
+                    <Image
+                      src={card.img}
+                      alt={card.name}
+                      sizes="100%"
+                      fill
+                      priority
+                      style={{ objectFit: "contain" }}
+                    />
+                  </Box>
+                </Link>
                 <Box
                   sx={{
                     display: "flex",
@@ -170,33 +179,33 @@ const Cards = () => {
                 )}
               </Box>
             </Grid>
-          ))
-        ) : (
-          <Box sx={{ width: "100%", display:'flex', alignItems:'center', flexDirection:'column', gap:2, py:2}}>
-            <Box sx={{ color: "red"}}>
-              Oops! No item match your search
-            </Box>
-            <Box
-              sx={{
-                position: "relative",
-                overflow: "hidden",
-                height:230,
-                width: 230
-              }}
-            >
-              <Image
-                src="/bare-tree.png"
-                alt="not found"
-                sizes="100%"
-                fill
-                priority
-                style={{ objectFit: "contain" }}
-              />
-            </Box>
-            
+          ))}
+        </Grid>
+      ) : (
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: 2,
+            mt: 2,
+          }}
+        >
+          <Box sx={{ color: "error.main" }}>
+            Oops! No item match your search
           </Box>
-        )}
-      </Grid>
+          <Box sx={{ position: "relative", width: 200, height: 200 }}>
+            <Image
+              src="/bare-tree.png"
+              alt="not found"
+              fill
+              sizes="100%"
+              priority
+              style={{ objectFit: "contain" }}
+            />
+          </Box>
+        </Box>
+      )}
     </Box>
   );
 };

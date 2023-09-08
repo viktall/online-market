@@ -35,7 +35,7 @@ const CardPage = () => {
           mb: 2,
         }}
       >
-        <Link href="/">
+        <Link href="/" prefetch={false}>
           <Box
             sx={{
               display: "inline-flex",

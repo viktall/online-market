@@ -6,43 +6,60 @@ const Footer = () => {
   return (
     <Box
       sx={{
-        bgcolor: "primary.main",
-        display: "flex",
-        flexDirection: "column",
-        height: 100,
-        gap: 1,
-        mt: 8,
-        mb: 0,
-        position: "relative",
+        bgcolor: "primary.light",
+        pb: 1,
+        mt: "auto",
       }}
     >
       <Box
         sx={{
-          position: "absolute",
-          borderRadius: "50%",
-          bgcolor: "#fff",
-          right: 12,
-          top: 15,
-          cursor: "pointer",
-          boxShadow: "rgba(0, 0, 0, 0.08) 0px 5px 20px",
-          "&:hover": {
-            transform: "translateY(-3px)",
-          },
+          maxWidth: "1200px",
+          mx: "auto",
+          px: {xs:3, md:0},
+          py:3,
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems:'center'
         }}
-        onClick={() => window.scrollTo(0, 0)}
       >
-        <IconButton>
-          <ArrowUpward sx={{ color: "primary.main" }} />
-        </IconButton>
-      </Box>
-      <Box>
-        <Link href="/cart">Cart</Link>
-      </Box>
-      <Box sx={{ flexGrow: 1}}>
-        <Link href="/favorite">favorite</Link>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            gap:3
+          }}
+        >
+          <Box>
+            <Link href="/cart" prefetch={false}>
+              Cart
+            </Link>
+          </Box>
+          <Box>
+            <Link href="/favorite" prefetch={false}>
+              favorite
+            </Link>
+          </Box>
+        </Box>
+        <Box>
+          <IconButton
+            sx={{
+              bgcolor: "#fff",
+              cursor: "pointer",
+              boxShadow: "rgba(0, 0, 0, 0.08) 0px 5px 20px",
+              "&:hover": {
+                transform: "translateY(-1px)",
+                bgcolor:'#efefef'
+              },
+            }}
+          >
+            <ArrowUpward sx={{ color: "primary.main" }} />
+          </IconButton>
+        </Box>
       </Box>
 
-      <Box sx={{ alignSelf: "center", color:'#fff' }}>copyright created by victor</Box>
+      <Box sx={{ textAlign: "center", color: "#fff" }}>
+        copyright created by victor
+      </Box>
     </Box>
   );
 };

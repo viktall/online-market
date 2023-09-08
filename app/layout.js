@@ -1,6 +1,7 @@
-import '@/app/globals.css'
+import "@/app/globals.css";
 import Mycontext from "@/components/maincontext";
 import Nav from "@/components/home/nav";
+import Footer from "@/components/home/footer";
 
 export const metadata = {
   title: "Create Next App",
@@ -13,7 +14,8 @@ export default function RootLayout({ children }) {
       <body>
         <Mycontext>
           <Nav />
-          <>{children}</>
+          {children}
+          <Footer />
         </Mycontext>
       </body>
     </html>

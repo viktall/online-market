@@ -23,21 +23,21 @@ const Favorite = () => {
         sx={{
           display: "flex",
           justifyContent: "space-between",
-          alignItems:'center',
+          alignItems: "center",
           bgcolor: "#fff",
-          px: { md:2, xs: 1 },
-          py:1.5,
-          mb:2,
+          px: { md: 2, xs: 1 },
+          py: 1.5,
+          mb: 2,
           borderRadius: 3,
         }}
       >
-        <Box sx={{color:'GrayText'}}>Favorite</Box>
-        <Link href="/">
+        <Box sx={{ color: "GrayText" }}>Favorite</Box>
+        <Link href="/" prefetch={false}>
           <Box
             sx={{
               display: "flex",
               alignItems: "center",
-              "&:hover": { color: "red" }
+              "&:hover": { color: "red" },
             }}
           >
             <ArrowRightAlt /> Products page
@@ -89,17 +89,25 @@ const Favorite = () => {
         </Grid>
       </Box>
       {!likescount && (
-        <Box sx={{ width: "100%" }}>
-          <Box sx={{ position: "relative", overflow: "hidden", height: 200 }}>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: 2, mt:2
+          }}
+        >
+          <Box sx={{ position: "relative", width: 200, height: 200 }}>
             <Image
               alt="items"
               src="/favorite-empty.svg"
               fill
-              sizes="100vw"
+              sizes="100%"
+              priority
               style={{ objectFit: "contain" }}
             />
           </Box>
-          <Box sx={{ textAlign: "center" }}>favorites are empty</Box>
+          <Box sx={{color:'error.main'}}>favorites are empty</Box>
         </Box>
       )}
     </Box>

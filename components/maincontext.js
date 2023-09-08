@@ -1,11 +1,9 @@
 "use client";
-import { useRouter } from "next/navigation";
 import { createContext, useState, useMemo } from "react";
 import cards from "@/components/store";
 export const Maincontext = createContext();
 
 const Mycontext = ({ children }) => {
-  const router = useRouter();
   const [state, setState] = useState(cards);
   const [stateTwo, setStateTwo] = useState([]);
   const [filtered, setFiltered] = useState("");
@@ -69,7 +67,6 @@ const Mycontext = ({ children }) => {
   };
 
   const Handlecarttrans = (card) => {
-    router.push("/card");
     setStateTwo([card]);
   };
 

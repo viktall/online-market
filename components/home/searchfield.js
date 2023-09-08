@@ -13,7 +13,7 @@ import { useContext } from "react";
 import { Maincontext } from "../maincontext";
 
 const Searchfield = () => {
-  const { filtered, setSearch, Handleselct } = useContext(Maincontext);
+  const { filtered, setSearch, search, Handleselct } = useContext(Maincontext);
   const Items = [
     { id: "", product: "All" },
     { id: "Vegetables", product: "Vegetables" },
@@ -30,15 +30,19 @@ const Searchfield = () => {
         borderRadius: 2,
         bgcolor: "#fff",
         mb: 2,
-        gap:0.5,
-        boxShadow: "rgba(0, 0, 0, 0.08) 0px 5px 20px"
+        gap: 0.5,
+        boxShadow: "rgba(0, 0, 0, 0.08) 0px 5px 20px",
       }}
     >
       <TextField
         id="search"
         size="small"
         label="Search item..."
-        onChange={(e) => setSearch(e.target.value)}
+        value={search}
+        onChange={(e) => {
+          e.preventDefault();
+          setSearch(e.target.value);
+        }}
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
@@ -46,19 +50,19 @@ const Searchfield = () => {
             </InputAdornment>
           ),
         }}
-        sx={{bgcolor:'#eee'}}
+        sx={{ bgcolor: "#eee" }}
       />
 
-      <FormControl id='con' size="small" sx={{ minWidth: 120 }}>
+      <FormControl id="con" size="small" sx={{ minWidth: 120 }}>
         <Select
           labelId="demo-simple-select-helper-label"
           value={filtered}
           onChange={Handleselct}
           displayEmpty
-          inputProps={{ "aria-label": "Without label", id:"idkey" }}
-          sx={{bgcolor:'#eee'}}
+          inputProps={{ "aria-label": "Without label", id: "idkey" }}
+          sx={{ bgcolor: "#eee" }}
         >
-          {Items.map(it => (
+          {Items.map((it) => (
             <MenuItem key={it.id} value={it.id}>
               {it.product}
             </MenuItem>

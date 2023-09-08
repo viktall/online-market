@@ -46,7 +46,7 @@ const CartPage = () => {
         maxWidth: "1200px",
         mx: "auto",
         px: 1,
-        py: 2,
+        py: 2
       }}
     >
       <Box
@@ -62,7 +62,7 @@ const CartPage = () => {
         }}
       >
         <Box sx={{ color: "GrayText" }}>Basket</Box>
-        <Link href="/">
+        <Link href="/" prefetch={false}>
           <Box
             sx={{
               display: "flex",
@@ -81,10 +81,10 @@ const CartPage = () => {
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
-            alignItems: "center",
+            alignItems: "center", mt:2
           }}
         >
-          <Box sx={{ width: 300, height: 300, position: "relative" }}>
+          <Box sx={{ width:200, height:200, position: "relative"}}>
             <Image
               src="/empty-cart.png"
               alt="items"
@@ -96,7 +96,7 @@ const CartPage = () => {
               }}
             />
           </Box>
-          <Box>The shopping cart is empty</Box>
+          <Box sx={{color:'error.main'}}>The shopping cart is empty</Box>
         </Box>
       ) : (
         <>

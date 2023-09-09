@@ -1,5 +1,4 @@
 "use client";
-
 import Link from "next/link";
 import { useContext } from "react";
 import { Maincontext } from "../maincontext";
@@ -11,7 +10,7 @@ const Nav = () => {
 
   return (
     <>
-      <AppBar position="fixed" sx={{bgcolor:'primary.light'}}>
+      <AppBar position="fixed" sx={{ bgcolor: "primary.light" }}>
         <Box>
           <Toolbar
             sx={{
@@ -19,18 +18,18 @@ const Nav = () => {
                 px: 0,
                 maxWidth: "1200px",
                 mx: "auto",
-                px: { xs: 3, md: 0 }
+                px: { xs: 3, md: 0 },
               },
             }}
           >
-            <Box sx={{ flexGrow: 1, color: "#fff" }}>
-              <Link href="/">
-                MarketByHillz
+            <Box sx={{ flexGrow: 1}}>
+              <Link href="/" scroll={false} style={{color:'#fff', fontFamily:'cursive'}}>
+                e-MarketByHillz
               </Link>
             </Box>
 
             <Box sx={{ display: "flex", alignItems: "center", gap: 3 }}>
-              <Link href="/cart">
+              <Link href="/cart" scroll={false}>
                 <Badge
                   color="warning"
                   anchorOrigin={{
@@ -48,7 +47,7 @@ const Nav = () => {
                 </Badge>
               </Link>
 
-              <Link href="/favorite">
+              <Link href="/favorite" scroll={false}>
                 <Badge
                   color="warning"
                   anchorOrigin={{

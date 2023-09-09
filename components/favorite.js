@@ -1,5 +1,4 @@
 "use client";
-
 import { Box, Button, Grid } from "@mui/material";
 import { useContext } from "react";
 import { Maincontext } from "@/components/maincontext";
@@ -49,7 +48,7 @@ const Favorite = () => {
         Remove All
       </Button>
 
-      <Box sx={{ width: "100%", display: !likescount ? "none" : "block" }}>
+      <Box sx={{ width: "100%", display: !likescount ? "none" : "block", mt:2 }}>
         <Grid container rowSpacing={2} columnSpacing={{ xs: 1.2 }}>
           {selectedItems.map((st) => (
             <Grid key={st.id} item xs={6} sm={3} md={2.4} lg={2}>

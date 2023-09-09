@@ -275,10 +275,10 @@ const CartPage = () => {
                     },
                     display: "flex",
                     flexDirection: "column",
-                    gap: 1,
+                    gap:0.5,
                   }}
                 >
-                  <Box>Do you have a discount code?</Box>
+                  <Box sx={{fontSize:14, color: "GrayText"}}>Do you have a discount code?</Box>
                   <Box>
                     <TextField
                       id="search"
@@ -299,10 +299,10 @@ const CartPage = () => {
                     />
                   </Box>
                   {dcode === code && clickButton && (
-                    <Box sx={{ color: "success.main" }}>Discount applied!</Box>
+                    <Box sx={{ color: "success.main", fontSize:14 }}>Discount applied !</Box>
                   )}
                   {dcode !== code && clickButton && (
-                    <Box sx={{ color: "error.main" }}>Incorrect code</Box>
+                    <Box sx={{ color: "error.main", fontSize:14 }}>Incorrect code !</Box>
                   )}
                 </Box>
 

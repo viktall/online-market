@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
         <Mycontext>
           <Nav />
           {children}
-          <Footer />
+          <Footer/>
         </Mycontext>
       </body>
     </html>
